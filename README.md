@@ -1,2 +1,2 @@
 # BowlingGame
-## Juan Pastor Ruiz Molina y Carlos Ruiz Uriel Díaz
+## Juan Pastor Ruiz Molina y Carlos Uriel Domínguez Ruiz-Díaz
