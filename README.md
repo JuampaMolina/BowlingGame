@@ -1,5 +1,8 @@
 # BowlingGame
 
+### EN OBRAS
+
+A este Kata aún le falta la funcionalidad que haga una distinción cuando se encuentres en la última tirada, es decir, la décima, ya que tiene un comportamiento especial
 
 ### Lógica del negocio o reglas del juego.
 
