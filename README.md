@@ -1,8 +1,5 @@
 # BowlingGame
 
-##  Realizado por:
-
-#### Juan Pastor Ruiz Molina, Carlos Uriel Domínguez Ruiz-Díaz y Antoni Pizarro.
 
 ### Lógica del negocio o reglas del juego.
 
@@ -53,3 +50,8 @@ heartbreak - 9 pins down each round, giving a score of 90.
 a spare every round, giving a score of 150.
 Como puedes imaginar, estos casos no van a ser suficientes. Intenta conseguir más ejemplos de
 partidas reales para chequear todos los posibles estados de las variables del programa.
+
+
+##  Realizado por:
+
+#### Juan Pastor Ruiz Molina, Carlos Uriel Domínguez Ruiz-Díaz y Antoni Pizarro.
