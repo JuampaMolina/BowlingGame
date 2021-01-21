@@ -54,4 +54,4 @@ partidas reales para chequear todos los posibles estados de las variables del pr
 
 ##  Realizado por:
 
-#### Juan Pastor Ruiz Molina, Carlos Uriel Domínguez Ruiz-Díaz y Antoni Pizarro.
+### Juan Pastor Ruiz Molina, Carlos Uriel Domínguez Ruiz-Díaz y Antoni Pizarro.
