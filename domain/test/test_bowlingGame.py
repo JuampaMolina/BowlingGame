@@ -21,7 +21,7 @@ def test_rollStrike():
     assert Bowling('12X5123XX34X2345').game_score() == 106
 
 
-def test_rollStrike():
+def test_rollStrike_three():
     assert Bowling('12X5123X1234X2345').game_score() == 82
     assert Bowling('12X5123XX34X2345').game_score() == 106
     assert Bowling('12X51XXX34X2345').game_score() == 131
