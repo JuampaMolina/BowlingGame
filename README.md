@@ -1,6 +1,8 @@
 # BowlingGame
 
-### Juan Pastor Ruiz Molina, Carlos Uriel Domínguez Ruiz-Díaz y Antoni Pizarro.
+##  Realizado por:
+
+#### Juan Pastor Ruiz Molina, Carlos Uriel Domínguez Ruiz-Díaz y Antoni Pizarro.
 
 ### Lógica del negocio o reglas del juego.
 
