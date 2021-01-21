@@ -1,6 +1,8 @@
 # BowlingGame
 
-## Juan Pastor Ruiz Molina, Carlos Uriel Domínguez Ruiz-Díaz y Antoni Pizarro.
+##  Realizado por:
+
+#### Juan Pastor Ruiz Molina, Carlos Uriel Domínguez Ruiz-Díaz y Antoni Pizarro.
 
 ### Lógica del negocio o reglas del juego.
 
@@ -38,7 +40,7 @@ bowled, and “/” means a spare. Otherwise figures 1-9 indicate how many pins 
 that throw.
 Sample games:
 
-12345123451234512345
+'''12345123451234512345'''
 always hitting pins without getting spares or strikes, a total score of 60.
 
 XXXXXXXXXXXX
