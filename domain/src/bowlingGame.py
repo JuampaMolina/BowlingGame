@@ -1,3 +1,6 @@
+import random
+
+
 class Bowling():
 
     # Símbolos que representan tiradas especiales.
@@ -17,19 +20,22 @@ class Bowling():
         self.rolls_in_frame = 0
         self.extra_points = []
 
-    def game_score(self):
+    def advance_roll(self):
         for roll in self.scorecard:
-            if len(self.extra_points) > 0:
-                Bowling.sum_extra_points(self)
-            if roll.isdigit():
-                Bowling.rollNormal(self, roll)
-            elif roll == Bowling.GUTTERBALL:
-                Bowling.rollGutterball(self)
-            elif roll == Bowling.SPARE:
-                Bowling.rollSpare(self, roll)
-            elif roll == Bowling.STRIKE:
-                Bowling.rollStrike(self, roll)
+            Bowling.game_score(self, roll)
         return self.score
+
+    def game_score(self, roll):
+        if len(self.extra_points) > 0:
+            Bowling.sum_extra_points(self)
+        if roll.isdigit():
+            Bowling.rollNormal(self, roll)
+        elif roll == Bowling.GUTTERBALL:
+            Bowling.rollGutterball(self)
+        elif roll == Bowling.SPARE:
+            Bowling.rollSpare(self, roll)
+        elif roll == Bowling.STRIKE:
+            Bowling.rollStrike(self, roll)
 
     def sum_extra_points(self):
         for roll in self.extra_points:
@@ -67,3 +73,7 @@ class Bowling():
         Bowling.updateRolls(self)
         self.extra_points = self.scorecard[self.current_roll:self.current_roll + 2]
         self.score += 10
+
+
+if __name__ == "__main__":
+    assert Bowling.extra_roll()
