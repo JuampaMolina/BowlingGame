@@ -1,6 +1,3 @@
-import random
-
-
 class Bowling():
 
     # Símbolos que representan tiradas especiales.
@@ -19,15 +16,24 @@ class Bowling():
         self.current_roll = 0
         self.rolls_in_frame = 0
         self.extra_points = []
+        self.previous_roll = 0
 
     def advance_roll(self):
         for roll in self.scorecard:
-            Bowling.game_score(self, roll)
+            if self.current_frame < 11:
+                Bowling.game_score(self, roll)
+                if len(self.extra_points) > 0:
+                    Bowling.sum_extra_points(self)
+            if roll.isdigit():
+                self.previous_roll = int(roll)
+            elif roll == Bowling.GUTTERBALL:
+                self.previous_roll = 0
+            elif roll == Bowling.SPARE or roll == Bowling.STRIKE:
+                self.previous_roll = 10
+
         return self.score
 
     def game_score(self, roll):
-        if len(self.extra_points) > 0:
-            Bowling.sum_extra_points(self)
         if roll.isdigit():
             Bowling.rollNormal(self, roll)
         elif roll == Bowling.GUTTERBALL:
@@ -54,9 +60,9 @@ class Bowling():
             self.current_frame += 1
             self.rolls_in_frame = 0
 
-    def rollNormal(self, score):
+    def rollNormal(self, roll):
         Bowling.updateRolls(self)
-        self.score += int(score)
+        self.score += int(roll)
 
     def rollGutterball(self):
         Bowling.updateRolls(self)
@@ -64,16 +70,18 @@ class Bowling():
 
     def rollSpare(self, roll):
         self.current_frame += 1
-        Bowling.updateRolls(self)
+        self.rolls_in_frame = 0
+        self.current_roll += 1
         self.extra_points = self.scorecard[self.current_roll:self.current_roll + 1]
-        self.score += 10
+        self.score += (10 - self.previous_roll)
 
     def rollStrike(self, roll):
         self.current_frame += 1
-        Bowling.updateRolls(self)
+        self.rolls_in_frame = 0
+        self.current_roll += 1
         self.extra_points = self.scorecard[self.current_roll:self.current_roll + 2]
-        self.score += 10
+        self.score += Bowling.TOTAL_PINS
 
 
 if __name__ == "__main__":
-    assert Bowling.extra_roll()
+    assert Bowling('26X3/4281X422/5/2/5').advance_roll() == 121
