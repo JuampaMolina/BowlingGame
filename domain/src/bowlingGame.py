@@ -16,7 +16,6 @@ class Bowling():
         self.current_roll = 0
         self.rolls_in_frame = 0
         self.extra_points = []
-        self.previous_roll = 0
 
     def advance_roll(self):
         for roll in self.scorecard:
@@ -53,6 +52,14 @@ class Bowling():
                 self.score += int(roll)
         self.extra_points = []
 
+    def convertSpecial(self, c):
+        if c.isdigit():
+            c = int(c)
+        elif c is Bowling.STRIKE:
+            c = 10
+        elif c is Bowling.GUTTERBALL:
+            c = 0
+
     def updateRolls(self):
         self.rolls_in_frame += 1
         self.current_roll += 1
@@ -72,8 +79,8 @@ class Bowling():
         self.current_frame += 1
         self.rolls_in_frame = 0
         self.current_roll += 1
-        self.extra_points = self.scorecard[self.current_roll:self.current_roll + 1]
-        self.score += (10 - self.previous_roll)
+        self.extra_points = self.scorecard[self.current_roll + 1]
+        self.score += 10 - \ (Bowling.convertSpecial(self.scorecard[self.current_roll - 1]))
 
     def rollStrike(self, roll):
         self.current_frame += 1
@@ -84,4 +91,4 @@ class Bowling():
 
 
 if __name__ == "__main__":
-    assert Bowling('26X3/4281X422/5/2/5').advance_roll() == 121
+    assert Bowling('5/3/X9---2/4/XXX4/').advance_roll() == 169
