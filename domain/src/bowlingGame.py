@@ -23,13 +23,7 @@ class Bowling():
                 Bowling.game_score(self, roll)
                 if len(self.extra_points) > 0:
                     Bowling.sum_extra_points(self)
-            if roll.isdigit():
-                self.previous_roll = int(roll)
-            elif roll == Bowling.GUTTERBALL:
-                self.previous_roll = 0
-            elif roll == Bowling.SPARE or roll == Bowling.STRIKE:
-                self.previous_roll = 10
-
+            self.current_roll += 1
         return self.score
 
     def game_score(self, roll):
@@ -43,26 +37,22 @@ class Bowling():
             Bowling.rollStrike(self, roll)
 
     def sum_extra_points(self):
+        last_value = 0
         for roll in self.extra_points:
             if roll == Bowling.GUTTERBALL:
                 self.score += 0
-            elif roll == Bowling.STRIKE or roll == Bowling.SPARE:
+                last_value = 0
+            elif roll == Bowling.STRIKE:
                 self.score += 10
+            elif roll == Bowling.SPARE:
+                self.score += 10 - last_value
             elif roll.isdigit():
                 self.score += int(roll)
+                last_value = int(roll)
         self.extra_points = []
-
-    def convertSpecial(self, c):
-        if c.isdigit():
-            c = int(c)
-        elif c is Bowling.STRIKE:
-            c = 10
-        elif c is Bowling.GUTTERBALL:
-            c = 0
 
     def updateRolls(self):
         self.rolls_in_frame += 1
-        self.current_roll += 1
         if self.rolls_in_frame == 2:
             self.current_frame += 1
             self.rolls_in_frame = 0
@@ -78,15 +68,17 @@ class Bowling():
     def rollSpare(self, roll):
         self.current_frame += 1
         self.rolls_in_frame = 0
-        self.current_roll += 1
         self.extra_points = self.scorecard[self.current_roll + 1]
-        self.score += 10 - \ (Bowling.convertSpecial(self.scorecard[self.current_roll - 1]))
+        if self.scorecard[self.current_roll - 1] != Bowling.GUTTERBALL:
+            self.score += 10 - int(self.scorecard[self.current_roll - 1])
+        else:
+            self.score += 10
 
     def rollStrike(self, roll):
         self.current_frame += 1
         self.rolls_in_frame = 0
-        self.current_roll += 1
-        self.extra_points = self.scorecard[self.current_roll:self.current_roll + 2]
+        self.extra_points = self.scorecard[self.current_roll +
+                                           1:self.current_roll + 3]
         self.score += Bowling.TOTAL_PINS
 
 

@@ -58,7 +58,9 @@ def test_pau():
     assert Bowling('2/6/X639/6/-4XXXXX').advance_roll() == 184
 
 
-""" assert Bowling('4/X-/4/-/XX7/4/7/X').advance_roll() == 182
+def test_nuevos():
+    assert Bowling('5/3/X9---2/4/XXX4/').advance_roll() == 169
+    assert Bowling('4/X-/4/-/XX7/4/7/X').advance_roll() == 182
     assert Bowling('26X3/4281X422/5/2/5').advance_roll() == 121
     assert Bowling('5/3/X9---2/4/XXX4/').advance_roll() == 169
     assert Bowling('XX4/4/3/XX2-1-XX9').advance_roll() == 157
@@ -66,4 +68,3 @@ def test_pau():
     assert Bowling('X7/326/XX5/435/XXX').advance_roll() == 174
     assert Bowling('13635/6/8/X6/545/X7/').advance_roll() == 151
     assert Bowling('4/6/XX9/X8/XXXXX').advance_roll() == 235
- """
