@@ -35,7 +35,7 @@ def test_rollStrike_three():
     assert Bowling('12X51XXX34X2345').advance_roll() == 131
 
 
-def test_pau():
+def test_mix():
     assert Bowling('32611661144527814225').advance_roll() == 71
     assert Bowling('12345123451234512345').advance_roll() == 60
     assert Bowling('5/5/5/5/5/5/5/5/5/5/5').advance_roll() == 150
@@ -56,9 +56,6 @@ def test_pau():
     assert Bowling('XX-625XX-5136235').advance_roll() == 109
     assert Bowling('625/6353X436/2441-5').advance_roll() == 93
     assert Bowling('2/6/X639/6/-4XXXXX').advance_roll() == 184
-
-
-def test_nuevos():
     assert Bowling('5/3/X9---2/4/XXX4/').advance_roll() == 169
     assert Bowling('4/X-/4/-/XX7/4/7/X').advance_roll() == 182
     assert Bowling('26X3/4281X422/5/2/5').advance_roll() == 121
