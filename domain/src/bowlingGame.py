@@ -77,6 +77,5 @@ class Bowling():
     def rollStrike(self, roll):
         self.current_frame += 1
         self.rolls_in_frame = 0
-        self.extra_points = self.scorecard[self.current_roll +
-                                           1:self.current_roll + 3]
+        self.extra_points = self.scorecard[self.current_roll + 1:self.current_roll + 3]
         self.score += Bowling.TOTAL_PINS
