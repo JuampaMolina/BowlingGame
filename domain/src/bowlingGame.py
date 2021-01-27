@@ -80,7 +80,3 @@ class Bowling():
         self.extra_points = self.scorecard[self.current_roll +
                                            1:self.current_roll + 3]
         self.score += Bowling.TOTAL_PINS
-
-
-if __name__ == "__main__":
-    assert Bowling('5/3/X9---2/4/XXX4/').advance_roll() == 169
